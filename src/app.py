@@ -39,6 +39,7 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
             self.hide()
         elif not self.isVisible() and reason != qtw.QSystemTrayIcon.Context:
             self.show()
+            self.activateWindow()
 
     def closeEvent(self, event):
         self.hide()
