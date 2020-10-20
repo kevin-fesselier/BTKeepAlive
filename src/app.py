@@ -25,7 +25,7 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
 
         self.tray = qtw.QSystemTrayIcon(self)
         self.tray.setIcon(qtg.QIcon('./src/ressource/icon.png'))
-        self.tray.setToolTip('keep alive!')
+        self.tray.setToolTip('BT keep alive')
         quit_action = qtw.QAction("Exit", self)
         quit_action.triggered.connect(qtw.qApp.quit)
         tray_menu = qtw.QMenu()
