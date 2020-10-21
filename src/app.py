@@ -19,7 +19,7 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
 
         self.offButton.setChecked(True)
         self.onButton.toggled.connect(self.on_off_toggle)
-        self.timerSpinBox.setValue(19)
+        self.timerSpinBox.setValue(10)
 
         self.scheduler = QtScheduler()
 
