@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 from PyQt5 import QtGui as qtg
+# import ressource_rc.py
 
 import pyaudio
 
@@ -14,7 +15,8 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
 
         self.setWindowFlags(qtc.Qt.WindowCloseButtonHint)
-        self.setWindowIcon(qtg.QIcon('./src/ressource/icon.png'))
+        self.setWindowIcon(qtg.QIcon('icon.png'))
+        # self.setWindowIcon(qtg.QIcon('./src/ressource/icon.png'))
         self.setFixedSize(130, 60)
 
         self.offButton.setChecked(True)
@@ -24,13 +26,16 @@ class MainWindow(qtw.QMainWindow, Ui_MainWindow):
         self.scheduler = QtScheduler()
 
         self.tray = qtw.QSystemTrayIcon(self)
-        self.tray.setIcon(qtg.QIcon('./src/ressource/icon.png'))
+        self.tray.setIcon(qtg.QIcon('icon.png'))
+        # self.tray.setIcon(qtg.QIcon('./src/ressource/icon.png'))
+        # self.tray.setIcon(qtg.QIcon(':/ressource/icon.png'))
         self.tray.setToolTip('BT keep Alive')
         quit_action = qtw.QAction("Exit", self)
         quit_action.triggered.connect(qtw.qApp.quit)
         tray_menu = qtw.QMenu()
         tray_menu.addAction(quit_action)
         self.tray.setContextMenu(tray_menu)
+        self.tray.setVisible(True)
         self.tray.show()
         self.tray.activated.connect(self.on_systray_activated)
 
